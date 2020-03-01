@@ -34,7 +34,6 @@ function rebuild(data, key, result, schema, errors) {
        result[key] = [];
        if (typeof data[key][0] === "object") {
           arrayObj(obj, schemaObj, result[key], errors);
-          result[key] = result[key][0]
        } else {
           array(obj, schemaObj, result[key], errors);
        }
