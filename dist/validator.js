@@ -25,7 +25,7 @@ function array(obj, schemaObj, result, errors) {
 
 function rebuild(data, key, result, schema, errors) {
    const obj = data[key];
-   const schemaObj = schema[key];
+   const schemaObj = schema ? schema[key]: undefined;
    if(checkObject(data[key])) {
       result[key] = {};
       process(obj, schemaObj, result[key], errors);
@@ -42,12 +42,13 @@ function rebuild(data, key, result, schema, errors) {
 }
 
 function map(obj, objKey, schemaObj, result, errors) {
-    if (checkType(obj[objKey], schemaObj[objKey])) {
+    let schemaLatest = schemaObj ? schemaObj[objKey]: undefined;
+    if (checkType(obj[objKey], schemaLatest)) {
       result[objKey] = true;
     } else if (checkRebuild(obj[objKey])) {
         rebuild(obj, objKey, result, schemaObj, errors);
     } else {
-      result[objKey] = ERROR.replace(":d", schemaObj[objKey]).replace(":s", typeof obj[objKey])
+      result[objKey] = ERROR.replace(":d", schemaLatest).replace(":s", typeof obj[objKey])
       errors.push({[objKey]: result[objKey]})
     }
 }
