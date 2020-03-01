@@ -1,4 +1,4 @@
-const Validator = require("./index");
+const Validator = require("../index");
 
 const data = {
       test: "true",
