@@ -38,7 +38,7 @@ if (!result.valid) console.log(result.errors);
 
 ## Validation keywords
 
-Ajv supports all validation keywords from draft-07 of JSON Schema standard:
+Rest-validator supports:
 
 - [type]() - object, string, number, boolean, array, null, undefined
 - [options]() -  type:object/string/number/boolean/array/null/undefined, required: true/false (default: false), min:0-255 (length of string, number counter), max:0-255 (length of string, number counter), allowEmpty:true/false (default:true)
