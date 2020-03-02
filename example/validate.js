@@ -1,7 +1,7 @@
 const Validator = require("../index");
 
 const data = {
-      test: "true",
+      // test: "tru",
       array: [
           {
             test: "lalala",
@@ -25,18 +25,18 @@ const data = {
     };
 
 const schema = {
-      test: "string",
+      test: "type:boolean, required:false, min:5, max:10",
       array: {
-        test: "string",
-        obj: {
-          last: "number"
-        }
+          test: "type:string",
+          obj: {
+              last: "type:number, min:3, max:4"
+          }
       },
-    arrays: ["string", "string", { ttt: "object"}],
-      number: "number",
+    arrays: ["type:string", "type:string", { ttt: "type:object"}],
+      number: "type:number",
       subObj: {
-        string: "string",
-        newObj: { letsTry: "number", us: { ii: 'string'} }
+        string: "type:string",
+        newObj: { letsTry: "type:number", us: { ii: 'type:string'} }
       }
     };
 
@@ -44,5 +44,4 @@ const schema = {
 (() => {
   const validator = new Validator({data, schema});
   console.log("example validation =>>>>>>>>>>>> ", validator.validateSchema());
-  console.log("example generation =>>>>>>>>>>>> ", validator.generateSchema())
 })();
