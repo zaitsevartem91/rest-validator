@@ -1,5 +1,5 @@
 
-module.exports = { checkType, checkRebuild, checkObject, checkArray }
+module.exports = { checkType, checkRebuild, checkObject, checkArray };
 
 const DATA_TYPES = {
     string: "string",
@@ -10,6 +10,13 @@ const DATA_TYPES = {
 };
 
 const LENGTH = {
+    min: "min",
+    max: "max"
+};
+
+const VALIDATION_PARTS = {
+    required: "required",
+    type: "type",
     min: "min",
     max: "max"
 };
@@ -68,14 +75,14 @@ function isValid() {
 
 function runTest(object, key, input, name) {
     switch (key) {
-        case "required":
-            return checkDataRequired(object, input) ? true : generateError('required', object, input, name);
-        case "type":
-            return input === undefined ? true: (checkDataType(object, input) ? true : generateError('type', object, input, name));
-        case "min":
-            return input === undefined ? true: (checkMin(object, input) ? true : generateError('min', object, input, name));
-        case "max":
-            return input === undefined ? true: (checkMax(object, input) ? true : generateError('max', object, input, name));
+        case VALIDATION_PARTS.required:
+            return checkDataRequired(object, input) ? true : generateError(VALIDATION_PARTS.required, object, input, name);
+        case VALIDATION_PARTS.type:
+            return input === undefined ? true: (checkDataType(object, input) ? true : generateError(VALIDATION_PARTS.type, object, input, name));
+        case VALIDATION_PARTS.min:
+            return input === undefined ? true: (checkMin(object, input) ? true : generateError(VALIDATION_PARTS.min, object, input, name));
+        case VALIDATION_PARTS.max:
+            return input === undefined ? true: (checkMax(object, input) ? true : generateError(VALIDATION_PARTS.max, object, input, name));
         default:
             return true;
     }
@@ -96,13 +103,13 @@ function checkDataRequired(obj, input) {
 
 function generateError(val, object, input, name) {
     switch (val) {
-        case "type":
+        case VALIDATION_PARTS.type:
             return `Field "${name}", with value: "${input}", expected to be ${object} type, received ${typeof input} type;`
-        case "required":
+        case VALIDATION_PARTS.required:
             return `Field "${name}" is required`;
-        case "min":
+        case VALIDATION_PARTS.min:
             return `Field "${name}" should be bigger or equal to ${object}`;
-        case "max":
+        case VALIDATION_PARTS.max:
             return `Field "${name}" should be lower or equal to ${object}`;
     }
 }
