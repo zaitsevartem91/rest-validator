@@ -1,8 +1,13 @@
 {
   "name": "rest-validator",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Validator for json payloads",
   "main": "index.js",
   "author": "Artem Zaitsev",
+  "keywords": ["json", "validator", "data-validator", "json-validator", "request-validator", "type-validator"],
+    "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/zaitsev_idealogic/rest-validator.git"
+  },
   "license": "ISC"
 }
