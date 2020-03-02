@@ -1,0 +1,38 @@
+{
+  "emptyString": "",
+  "arrayOfObjects": [
+    {
+      "string": "string",
+      "arrayOfObjects": [
+        {
+          "number": 123
+        }
+      ]
+    },
+    {
+      "string": "str",
+      "arrayOfObjects": [
+        {
+          "number": 12377
+        }
+      ]
+    }
+  ],
+  "mixedArray": [
+    "string",
+    123,
+    {
+      "arrayEmptyObject": {}
+    }
+  ],
+  "number": 123,
+  "object": {
+    "string": "string",
+    "objectLevel2": {
+      "string": "string",
+      "objectLevel3": {
+        "string": "string"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 "use strict";
-const process = require("./dist/validator");
-const generate = require("./dist/generator");
+const process = require("./lib/validator");
+const generate = require("./lib/generator");
 
 module.exports = Validator;
 
@@ -19,7 +19,7 @@ function validateSchema() {
   const data = this.data;
   const schema = this.schema;
   process(data, schema, result, errors);
-  return errors.length > 0 ? result: true;
+  return { errors: errors.length > 0 ? result: {}, valid: !(errors.length > 0) };
 }
 
 function generateSchema() {

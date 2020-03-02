@@ -1,0 +1,26 @@
+{
+  "emptyString": "type:string, required:true, allowEmpty:false",
+  "arrayOfObjects": {
+    "string": "type:string, min:7",
+    "arrayOfObjects": {
+        "number": "type:number, min:3, max:4"
+    }
+  },
+  "mixedArray": [
+    "type:string",
+    "type:string",
+    {
+      "arrayEmptyObject": "type:object"
+    }
+  ],
+  "number": "type:number",
+  "object": {
+    "string": "type:string",
+    "objectLevel2": {
+      "string": "type:number",
+      "objectLevel3": {
+        "string": "type:string"
+      }
+    }
+  }
+}
