@@ -30,10 +30,15 @@ const data = require('./example/data.json');
 const schema = require('./example/schema.json'); // optional
 
 const validator = new Validator(
-    { data, schema: {} });
+    { data, schema: schema });
 const result = validator.validateSchema();
 
+const generatedData = validator.generateSchema();
+
+console.log(generatedData);
+
 if (!result.valid) console.log(result.errors);
+
 ```
 
 ## Validation keywords
@@ -87,7 +92,7 @@ JSON DATA example
 }
 ```
 
-SCHEMA data example
+SCHEMA data example (generation data example)
 ```json
 
 {
