@@ -1,13 +1,26 @@
 {
   "name": "rest-validator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Validator for json payloads",
   "main": "index.js",
   "author": "Artem Zaitsev",
-  "keywords": ["json", "validator", "data-validator", "json-validator", "request-validator", "type-validator", "generator", "json schema generator"],
-    "repository": {
+  "keywords": [
+    "json",
+    "validator",
+    "data-validator",
+    "json-validator",
+    "request-validator",
+    "type-validator",
+    "generator",
+    "json schema generator"
+  ],
+  "repository": {
     "type": "git",
     "url": "https://gitlab.com/zaitsev_idealogic/rest-validator.git"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "pg": "^7.18.2"
   },
   "license": "ISC"
 }
