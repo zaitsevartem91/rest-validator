@@ -1,5 +1,5 @@
 "use strict";
-const process = require("./lib/validator");
+const {process, formatResult } = require("./lib/validator");
 const generate = require("./lib/generator");
 const { DB, drivers } = require("./lib/db-util");
 const { emailRegex } = require("./lib/expressions");
@@ -28,7 +28,9 @@ function validateSchema() {
   const data = this.data;
   const schema = this.schema;
   process(data, schema, result, errors);
-  return { errors: errors.length > 0 ? result: {}, valid: !(errors.length > 0) };
+  let formattedResult ={};
+  formatResult(result, formattedResult);
+  return { errors: errors.length > 0 ? formattedResult: {}, valid: !(errors.length > 0) };
 }
 
 function generateSchema() {

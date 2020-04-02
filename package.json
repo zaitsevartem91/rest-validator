@@ -1,6 +1,6 @@
 {
   "name": "rest-validator",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Validator for json payloads",
   "main": "index.js",
   "author": "Artem Zaitsev",
